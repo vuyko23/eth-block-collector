@@ -15,6 +15,14 @@ To run elastic search, you can use the following command:
   -e "xpack.security.enabled=false" \
   docker.elastic.co/elasticsearch/elasticsearch:8.13.4
 ```
+If you like to see data in Kibana, you can use the following command:
+```bash
+docker run -d --name kibana \
+  -p 5601:5601 \
+  --add-host=host.docker.internal:host-gateway \
+  -e ELASTICSEARCH_HOSTS="http://host.docker.internal:8081" \
+  docker.elastic.co/kibana/kibana:8.13.4
+  ```
 
 ## How to Use
 Swagger URL: ``` http://localhost:8080/swagger-ui.html ```
